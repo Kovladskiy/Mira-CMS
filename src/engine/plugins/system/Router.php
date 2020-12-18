@@ -23,7 +23,6 @@ class Router extends MiraCMS {
             } 
             if ($key == $url) {
                 require_once __DIR__ . '/../../views/'.$value.'';
-                echo 'ok';
                 $access = 1;
             break;
             }
