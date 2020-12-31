@@ -21,7 +21,6 @@ class Template_Engine extends MiraCMS {
             if ($explode[0] == '{MiraCMS.-') {
                 $explode[1] = str_replace('}','',$explode[1]);
                 $explode = explode('.',$explode[1]);
-                echo $explode[1].'.'.$explode[0].'<br>';
                 $template = str_replace('{MiraCMS.- '.$explode[0].'.'.$explode[1].'}','<?php echo $value["'.$explode[1].'"]; ?>', $template);
             }
         }
