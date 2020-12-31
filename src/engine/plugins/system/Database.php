@@ -21,6 +21,6 @@ class Database extends MiraCMS {
         }
     }
     public function create() {
-        $db = $this->db;
+        return $this->db;
     }
 }
