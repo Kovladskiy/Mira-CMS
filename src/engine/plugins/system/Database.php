@@ -10,7 +10,6 @@ class Database extends MiraCMS {
         } catch (PDOException $e) {
             http_response_code(500);
             //print "Error!: " . $e->getMessage() . "<br/>";
-            die();
         }
     }
     public function create() {
