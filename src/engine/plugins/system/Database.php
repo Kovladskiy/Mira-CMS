@@ -8,11 +8,16 @@ class Database extends MiraCMS {
             $dbh = new PDO('mysql:host='.$db_server.';dbname='.$db_name.'', $db_username, $db_password);
             $this->db = $dbh;
         } catch (PDOException $e) {
-            $key = time();
-            $file =  __DIR__.'../../logs/Database_'.$key.'.miralogs';
-            $content = "Error:   ".$e->getMessage()."\n";
-            file_put_contents($file, $content, FILE_APPEND | LOCK_EX);
+            $date = time();
+            $date = date("Y-m-d",$date);
+            $full_date = date("Y-m-d h:i:s",$date);
+            $file =  '../engine/logs/Database_'.$date.'.txt';
+            $fh = fopen($file, 'a+') or die("Fatal Error!");
+            $logcontent = "Time : " . $full_date . "\r\n" . $e->getMessage() . "\r\n";
+            fwrite($fh, $logcontent);
+            fclose($fh);
             http_response_code(500);
+            exit();
         }
     }
     public function create() {
