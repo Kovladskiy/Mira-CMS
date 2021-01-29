@@ -1,7 +1,7 @@
 <?php
 class MiraCMS {
     public function run () {    
-        global $cms_plugins,$user_plugins;
+        global $cms_plugins;
 
         $plugins = scandir(__DIR__.'/plugins/user/');
         $plugins_files = array();
