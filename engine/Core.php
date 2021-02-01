@@ -1,7 +1,7 @@
 <?php
 class MiraCMS {
     public function run () {    
-        global $cms_plugins;
+        global $cms_plugins, $DB;
 
         require_once 'engine/functions/Security.php';
         

@@ -1,8 +1,8 @@
 <?php
 # Version: AlphaContavra  # 
 session_start();
-require_once 'engine/Database.php';
 require_once 'engine/Config.php';
+require_once 'engine/Database.php';
 require_once 'engine/Core.php';
 
 set_error_handler(function($errno, $errstr, $errfile, $errline, $errcontext) {
