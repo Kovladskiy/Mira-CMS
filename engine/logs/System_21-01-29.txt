@@ -1,0 +1,50 @@
+Time : 21-01-29 11:31:06
+Function mcrypt_get_iv_size() is deprecated
+Time : 21-01-29 11:35:12
+Undefined variable: cbc
+Time : 21-01-29 11:35:49
+Undefined variable: key_encrypt
+Time : 21-01-29 11:38:29
+Undefined property: Router::$qry
+Time : 21-01-29 11:38:30
+Undefined property: Router::$qry
+Time : 21-01-29 11:38:30
+Undefined property: Router::$qry
+Time : 21-01-29 11:38:31
+Undefined property: Router::$qry
+Time : 21-01-29 11:38:31
+Undefined property: Router::$qry
+Time : 21-01-29 11:38:32
+Undefined property: Router::$qry
+Time : 21-01-29 11:38:33
+Undefined property: Router::$qry
+Time : 21-01-29 11:41:17
+password_verify() expects exactly 2 parameters, 0 given
+Time : 21-01-29 11:41:24
+password_verify() expects exactly 2 parameters, 0 given
+Time : 21-01-29 11:42:49
+Undefined variable: hash
+Time : 21-01-29 11:42:50
+Undefined variable: hash
+Time : 21-01-29 11:42:50
+Undefined variable: hash
+Time : 21-01-29 11:42:50
+Undefined variable: hash
+Time : 21-01-29 11:42:50
+Undefined variable: hash
+Time : 21-01-29 11:42:50
+Undefined variable: hash
+Time : 21-01-29 11:43:04
+Undefined variable: hash
+Time : 21-01-29 11:43:08
+Undefined variable: hash
+Time : 21-01-29 11:43:09
+Undefined variable: hash
+Time : 21-01-29 11:43:09
+Undefined variable: hash
+Time : 21-01-29 11:43:09
+Undefined variable: hash
+Time : 21-01-29 11:43:09
+Undefined variable: hash
+Time : 21-01-29 11:43:09
+Undefined variable: hash
