@@ -30,5 +30,3 @@ try {
 }
 
 exit();
-
-//test1
