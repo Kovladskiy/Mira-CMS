@@ -4,6 +4,8 @@ $db_username = 'root';
 $db_password = 'root';
 $db_name = 'cms';
 $admin_url = '/admin';
+$admin_theme =  'Default';
+$site_theme = 'Default';
 
 $matching = [
     'n' => "/[^0-9]/",

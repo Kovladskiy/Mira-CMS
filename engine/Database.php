@@ -49,7 +49,6 @@ class Database {
                 }   else {
                     $values .= ',?';
                 }
-                echo $value;
             }
 
             $query = $db->prepare('INSERT INTO '.$table.' ('.$set_condition.') VALUES ('.$values.')');
