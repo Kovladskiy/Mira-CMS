@@ -1,5 +1,8 @@
 <?php
+    $data = $_POST;
+    if (!empty($data)) {
 
+    }
 ?>
 <!DOCTYPE HTML>
 <html lang="ru">
@@ -26,6 +29,9 @@
       </fieldset>
       <fieldset>
         <input placeholder="Database Name" type="text" tabindex="4" required>
+      </fieldset>
+      <fieldset>
+        <input placeholder="Admin URL" type="text" tabindex="4" required>
       </fieldset>
       <fieldset>
         <input placeholder="Admin Username" type="text" tabindex="4" required>
