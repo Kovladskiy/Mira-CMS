@@ -1,6 +1,0 @@
-<div class="news">
-{MiraCMS- news}
-Title: {MiraCMS.- news.title}<br> 
-Content: {MiraCMS.- news.content}<br> 
-{MiraCMS/- news}
-</div>
