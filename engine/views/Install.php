@@ -44,13 +44,13 @@
         <input placeholder="Database Name" name="db_name" type="text" tabindex="4" required>
       </fieldset>
       <fieldset>
-        <input placeholder="Admin URL" name="admin_url" type="text" tabindex="4" required>
+        <input placeholder="Admin URL" name="admin_url" type="text" tabindex="5" required>
       </fieldset>
       <fieldset>
-        <input placeholder="Admin Username" name="admin_username" type="text" tabindex="4" required>
+        <input placeholder="Admin Username" name="admin_username" type="text" tabindex="6" required>
       </fieldset>
       <fieldset>
-        <input placeholder="Admin Password" name="admin_password" type="password" tabindex="4" required>
+        <input placeholder="Admin Password" name="admin_password" type="password" tabindex="7" required>
       </fieldset>
       <fieldset>
         <button name="submit" type="submit">Install</button>
