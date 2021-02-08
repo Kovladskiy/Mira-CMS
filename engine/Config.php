@@ -1,7 +1,7 @@
 <?php
 $db_server = 'localhost';
 $db_username = 'root';
-$db_password = 'roota';
+$db_password = 'root';
 $db_name = 'cms';
 $admin_url = '/admin';
 
