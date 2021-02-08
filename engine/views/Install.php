@@ -38,7 +38,7 @@
         <input placeholder="Database Username" name="db_username" type="text" tabindex="2" required>
       </fieldset>
       <fieldset>
-        <input placeholder="Database Password" name="db_password" type="text" tabindex="3" required>
+        <input placeholder="Database Password" name="db_password" type="password" tabindex="3" required>
       </fieldset>
       <fieldset>
         <input placeholder="Database Name" name="db_name" type="text" tabindex="4" required>
@@ -50,7 +50,7 @@
         <input placeholder="Admin Username" name="admin_username" type="text" tabindex="4" required>
       </fieldset>
       <fieldset>
-        <input placeholder="Admin Password" name="admin_password" type="text" tabindex="4" required>
+        <input placeholder="Admin Password" name="admin_password" type="password" tabindex="4" required>
       </fieldset>
       <fieldset>
         <button name="submit" type="submit">Install</button>
