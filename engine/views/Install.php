@@ -10,6 +10,9 @@
         } catch (Exception $e) {
             $error_text = 'Error connecting to Database!';
         }
+        if(!preg_match ('/^([a-zA-Z]+)$/', $data['admin_url'])){
+            $error_text = 'Invalid characters';
+        }
     }
 ?>
 <!DOCTYPE HTML>
