@@ -3,21 +3,8 @@ class Database {
     public $db, $data_encryption = 'no';
     public function __construct() {
         global $db_server, $db_name,$db_username,$db_password;
-        try {
-            $dbh = new PDO('mysql:host='.$db_server.';dbname='.$db_name.'', $db_username, $db_password);
-            $this->db = $dbh;
-        } catch (PDOException $e) {
-            $date = time();
-            $full_date = date("Y-m-d h:i:s",$date);
-            $date = date("Y-m-d",$date);
-            $file = 'engine/logs/Database_'.$date.'.txt';
-            $fh = fopen($file, 'a+') or die("Fatal Error!");
-            $logcontent = "Time : " . $full_date . "\r\n" . $e->getMessage() . "\r\n";
-            fwrite($fh, $logcontent);
-            fclose($fh);
-            http_response_code(500);
-            exit();
-        }
+        $dbh = new PDO('mysql:host='.$db_server.';dbname='.$db_name.'', $db_username, $db_password);
+        $this->db = $dbh;
     }
     public function query($table,$statement,$set_condition,$search_condition,$data) {
         $db = $this->db;
