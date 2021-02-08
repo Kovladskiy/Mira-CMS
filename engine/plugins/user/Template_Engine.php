@@ -3,8 +3,9 @@ $plugin_name = 'Template_Engine';
 $plugin_status = 'Enabled';
 class Template_Engine extends MiraCMS {
     public function view($path) {
+        global $current_template;
         $cms_data['news'] = array(array('title' => 'Test'),array('title' => 'Test'));
-        $template = file_get_contents('templates/'.$path.'.html');
+        $template = file_get_contents('templates/'.$current_template.'/'.$path.'.html');
         $data_template = array();
 
         preg_match_all('|{MiraCMS- (.+)}|isU', $template, $matches);

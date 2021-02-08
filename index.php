@@ -14,6 +14,8 @@ set_error_handler(function($errno, $errstr, $errfile, $errline, $errcontext) {
 try {
     $cms_plugins = array();
     $DB = new Database();
+    $current_template = $DB->query('config_data','SELECT','','data_key = ?', array('current_template'));
+    $current_template = $current_template['data_value'];
     $cms_core = new MiraCMS();
     $cms_core->run();
 } catch (Exception $e) {

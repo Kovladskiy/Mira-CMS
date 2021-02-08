@@ -1,8 +1,1 @@
-ExampleTime : 21-02-08 07:22:07
-SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
-Time : 21-02-08 07:35:22
-file_get_contents(templates/Home.html): failed to open stream: No such file or directory
-Time : 21-02-08 07:35:47
-Undefined index: content
-Time : 21-02-08 07:36:44
-Undefined index: content
+Example
