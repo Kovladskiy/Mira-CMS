@@ -1,1 +1,2 @@
-Example
+ExampleTime : 21-02-08 07:22:07
+SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
