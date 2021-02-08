@@ -1,5 +1,4 @@
 <?php
-# Version: AlphaContavra  # 
 session_start();
 require_once 'engine/Config.php';
 require_once 'engine/Database.php';
