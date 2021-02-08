@@ -12,6 +12,10 @@ set_error_handler(function($errno, $errstr, $errfile, $errline, $errcontext) {
 });
 
 try {
+    if (file_exists('engine/views/Install.php')) {
+        require_once 'engine/views/Install.php';
+        exit();
+    }
     $cms_plugins = array();
     $DB = new Database();
     $current_template = $DB->query('config_data','SELECT','','data_key = ?', array('current_template'));
