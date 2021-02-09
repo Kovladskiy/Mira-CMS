@@ -5,12 +5,12 @@ set_error_handler(function($errno, $errstr, $errfile, $errline, $errcontext) {
     }
     throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
 });
+
 try {
     session_start();
     require_once 'engine/Config.php';
     require_once 'engine/Database.php';
     require_once 'engine/Core.php';
-
     if (file_exists('engine/views/Install.php')) {
         require_once 'engine/views/Install.php';
         exit();
