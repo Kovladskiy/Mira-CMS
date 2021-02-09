@@ -13,6 +13,9 @@
         if(!preg_match ('/^([a-zA-Z]+)$/', $data['admin_url'])){
             $error_text = 'Invalid characters';
         }
+        if (empty($error_text)) {
+              $success_text = 'Mira CMS Was Installed! Please, click on "Continue" button.';
+        }
     }
 ?>
 <!DOCTYPE HTML>
@@ -31,7 +34,9 @@
       <?php
         if (!empty($error_text)) {
             echo '<h4 style="color: red;">'.$error_text.'</h4>';
-        }
+        } else if (!empty($success_text)) {
+          echo '<h4 style="color: green;">'.$success_text.'</h4>';
+      }
       ?>
       <fieldset>
         <input placeholder="Database Server" name="db_server" type="text" tabindex="1" required autofocus>
