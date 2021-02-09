@@ -15,6 +15,16 @@
         }
         if (empty($error_text)) {
               $success_text = 'Mira CMS Was Installed! Please, click on "Continue" button.';
+              $config = file_get_contents('engine/Config.php');
+              $config = str_replace('%DB_SERVER%', $data['db_server'], $config);
+              $config = str_replace('%DB_USERNAME%', $data['db_username'], $config);
+              $config = str_replace('%DB_PASSWORD%', $data['db_password'], $config);
+              $config = str_replace('%DB_NAME%', $data['db_name'], $config);
+              if (empty($data['admin_url'])) {
+                  $data['admin_url'] == 'admin';
+               }
+              $config = str_replace('/%ADMIN_URL%', $data['admin_url'], $config);
+              file_put_contents('engine/Config.php', $config);
         }
     }
 ?>
