@@ -27,8 +27,7 @@
 <body>
   <div class="container">  
     <form id="contact" action="" method="post">
-      <h3>Mira CMS</h3>
-      <h4>Write correct data to install Mira CMS</h4>
+      <h3>Mira CMS Installer</h3><hr><br>
       <?php
         if (!empty($error_text)) {
             echo '<h4 style="color: red;">'.$error_text.'</h4>';
@@ -54,7 +53,7 @@
       </fieldset>
       <fieldset>
         <input placeholder="Admin Password" name="admin_password" type="password" tabindex="7" required>
-      </fieldset>
+      </fieldset><br>
       <fieldset>
         <button name="submit" type="submit">Install</button>
       </fieldset>
