@@ -3,7 +3,7 @@ $db_server = '%DB_SERVER%';
 $db_username = '%DB_USERNAME%';
 $db_password = '%DB_PASSWORD%';
 $db_name = '%DB_NAME%';
-$admin_url = '/%ADMIN_URL%';asdasasd
+$admin_url = '/%ADMIN_URL%';
 
 $matching = [
     'n' => "/[^0-9]/",
