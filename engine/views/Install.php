@@ -6,8 +6,8 @@
         $db_name = $data['db_name'];
         $db_username = $data['db_username'];
         $db_password = $data['db_password'];
-        $dbh = new PDO('mysql:host='.$db_server.';dbname='.$db_name.'', $db_username, $db_password);
-        } catch (Exception $e) {
+        $db = new PDO('mysql:host='.$db_server.';dbname='.$db_name.'', $db_username, $db_password);
+        } catch (PDOException $e) {
             $error_text = 'Error connecting to Database!';
         }
         if(!preg_match ('/^([a-zA-Z]+)$/', $data['admin_url'])){
@@ -24,6 +24,22 @@
                   $data['admin_url'] == 'admin';
                }
               $config = str_replace('/%ADMIN_URL%', $data['admin_url'], $config);
+              $query = "CREATE TABLE miracms_config_data (
+                id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                data_key VARCHAR(256) NOT NULL,
+                data_value VARCHAR(256) NOT NULL
+                )";
+              $db->exec($query);
+              $query = "CREATE TABLE miracms_admin_users (
+                id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                username VARCHAR(256) NOT NULL,
+                password VARCHAR(256) NOT NULL
+                )";
+              $db->exec($query);
+              $query = $db->prepare('INSERT INTO miracms_config_data (data_key, data_value) VALUES (?,?)');
+              $query->execute(array('current_template','Default'));
+              $query = $db->prepare('INSERT INTO miracms_admin_users (username, password) VALUES (?,?)');
+              $query->execute(array($data['admin_username'],$data['admin_password']));
               file_put_contents('engine/Config.php', $config);
         }
     }
