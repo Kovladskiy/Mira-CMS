@@ -41,6 +41,7 @@
               $query = $db->prepare('INSERT INTO miracms_admin_users (username, password) VALUES (?,?)');
               $query->execute(array($data['admin_username'],$data['admin_password']));
               file_put_contents('engine/Config.php', $config);
+              unlink('engine/views/Install.php');
         }
     }
 ?>
