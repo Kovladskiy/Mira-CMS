@@ -15,7 +15,7 @@
         }
         if (empty($error_text)) {
               $success_text = 'Mira CMS Was Installed! Please, click on "Continue" button.';
-              $config = file_get_contents('engine/Config.php');
+              $config = file_get_contents('engine/Pre_Config.php');
               $config = str_replace('%DB_SERVER%', $data['db_server'], $config);
               $config = str_replace('%DB_USERNAME%', $data['db_username'], $config);
               $config = str_replace('%DB_PASSWORD%', $data['db_password'], $config);
