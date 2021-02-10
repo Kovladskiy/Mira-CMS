@@ -1,5 +1,5 @@
 <?php
-
+    $cms_plugins['Template_Engine']->view('Home','Admin');
 ?>
 <!doctype html>
 <html lang="en">
