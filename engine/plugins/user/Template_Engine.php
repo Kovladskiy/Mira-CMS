@@ -12,7 +12,6 @@ class Template_Engine extends MiraCMS {
         foreach ($matches[0] as $key => $match) {
             $explode = explode(' ', $match);
             $explode[1] = str_replace('}','',$explode[1]);
-    
             $template = substr($template, strpos($template, '{MiraCMS-'));
             $template = str_replace('{MiraCMS- '.$explode[1].'}','<?php foreach ($cms_data["'.$explode[1].'"] as $value) { ?>', $template);
         }
