@@ -38,6 +38,10 @@
               $db->exec($query);
               $query = $db->prepare('INSERT INTO miracms_config_data (data_key, data_value) VALUES (?,?)');
               $query->execute(array('current_template','Default'));
+              $options = [
+                'cost' => 12,
+              ];
+              $data['admin_password'] = password_hash($data['admin_password'], PASSWORD_BCRYPT, $options);
               $query = $db->prepare('INSERT INTO miracms_admin_users (username, password) VALUES (?,?)');
               $query->execute(array($data['admin_username'],$data['admin_password']));
               file_put_contents('engine/Config.php', $config);
