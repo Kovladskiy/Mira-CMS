@@ -1,3 +1,3 @@
 <?php
-    $cms_plugins['Template_Engine']->view('Home');
+    $cms_plugins['Template_Engine']->view('Home','');
 ?>

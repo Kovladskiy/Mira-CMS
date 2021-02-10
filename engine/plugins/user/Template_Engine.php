@@ -2,12 +2,15 @@
 $plugin_name = 'Template_Engine';
 $plugin_status = 'Enabled';
 class Template_Engine extends MiraCMS {
-    public function view($path) {
-        global $current_template;
+    public function view($path, $mode) {
+        global $current_template,$current_admin_template;
         $cms_data['news'] = array(array('title' => 'Test'),array('title' => 'Test'));
-        $template = file_get_contents('templates/'.$current_template.'/'.$path.'.html');
         $data_template = array();
-
+        if ($mode == 'Admin') {
+          $template = file_get_contents('templates/Admin/'.$current_admin_template.'/'.$path.'.html');
+        }   else {
+            $template = file_get_contents('templates/'.$current_template.'/'.$path.'.html');
+        }
         preg_match_all('|{MiraCMS- (.+)}|isU', $template, $matches);
         foreach ($matches[0] as $key => $match) {
             $explode = explode(' ', $match);
@@ -15,7 +18,6 @@ class Template_Engine extends MiraCMS {
             $template = substr($template, strpos($template, '{MiraCMS-'));
             $template = str_replace('{MiraCMS- '.$explode[1].'}','<?php foreach ($cms_data["'.$explode[1].'"] as $value) { ?>', $template);
         }
-
         preg_match_all('|{MiraCMS.- (.+)}|isU', $template, $matches2);
         foreach ($matches2[0] as $key => $match) {
             $explode = explode(' ',$match);
@@ -25,7 +27,6 @@ class Template_Engine extends MiraCMS {
                 $template = str_replace('{MiraCMS.- '.$explode[0].'.'.$explode[1].'}','<?php echo $value["'.$explode[1].'"]; ?>', $template);
             }
         }
-
         preg_match_all('|{MiraCMS/- (.+)}|isU', $template, $matches1);
         foreach ($matches1[0] as $key => $match) {
             $explode = explode(' ', $match);
@@ -33,9 +34,6 @@ class Template_Engine extends MiraCMS {
             $template = substr($template, strpos($template, '{MiraCMS-'));
             $template = str_replace('{MiraCMS/- '.$explode[1].'}','<?php } ?>', $template);
         }
-
         eval(' ?>'.$template.'<?php ');
-
-
 }
 }

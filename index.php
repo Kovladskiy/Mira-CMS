@@ -15,12 +15,12 @@ try {
     require_once 'engine/Config.php';
     require_once 'engine/Database.php';
     require_once 'engine/Core.php';
-    $DB = new Database();
-    $current_template = $DB->query('config_data','SELECT','','data_key = ?', array('current_template'));
-    $current_template = $current_template['data_value'];
-    $current_admin_template = $DB->query('config_data','SELECT','','data_key = ?', array('current_admin_template'));
-    $current_admin_template = $current_admin_template['data_value'];
     $cms_plugins = array();
+    $DB = new Database();
+    $current_template = $DB->query('miracms_config_data','SELECT','','data_key = ?', array('current_template'));
+    $current_template = $current_template['data_value'];
+    $current_admin_template = $DB->query('miracms_config_data','SELECT','','data_key = ?', array('current_admin_template'));
+    $current_admin_template = $current_admin_template['data_value'];
     $cms_core = new MiraCMS();
     $cms_core->run();
 } catch (Exception $e) {
