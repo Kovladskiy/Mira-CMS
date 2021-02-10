@@ -8,13 +8,13 @@ set_error_handler(function($errno, $errstr, $errfile, $errline, $errcontext) {
 
 try {
     session_start();
-    require_once 'engine/Config.php';
-    require_once 'engine/Database.php';
-    require_once 'engine/Core.php';
     if (file_exists('engine/views/Install.php')) {
         require_once 'engine/views/Install.php';
         exit();
     }
+    require_once 'engine/Config.php';
+    require_once 'engine/Database.php';
+    require_once 'engine/Core.php';
     $cms_plugins = array();
     $DB = new Database();
     $current_template = $DB->query('config_data','SELECT','','data_key = ?', array('current_template'));
