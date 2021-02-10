@@ -8,14 +8,5 @@ if (!empty($post)) {
         echo 'Bad attempt';
     }
 }
+$cms_plugins['Template_Engine']->view('Login','Admin');
 ?>
-<!DOCTYPE HTML">
-<html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Вход в админ панель</title>
- </head>
- <body>
-        
- </body>
-</html>
