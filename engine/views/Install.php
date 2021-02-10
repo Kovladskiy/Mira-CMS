@@ -21,9 +21,9 @@
               $config = str_replace('%DB_PASSWORD%', $data['db_password'], $config);
               $config = str_replace('%DB_NAME%', $data['db_name'], $config);
               if (empty($data['admin_url'])) {
-                  $data['admin_url'] == 'admin';
+                  $data['admin_url'] == '/admin';
                }
-              $config = str_replace('/%ADMIN_URL%', $data['admin_url'], $config);
+              $config = str_replace('/%ADMIN_URL%', '/'.$data['admin_url'], $config);
               $query = "CREATE TABLE miracms_config_data (
                 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 data_key VARCHAR(256) NOT NULL,
