@@ -15,10 +15,10 @@ try {
     require_once 'engine/Config.php';
     require_once 'engine/Database.php';
     require_once 'engine/Core.php';
-    $cms_plugins = array();
     $DB = new Database();
     $current_template = $DB->query('config_data','SELECT','','data_key = ?', array('current_template'));
     $current_template = $current_template['data_value'];
+    $cms_plugins = array();
     $cms_core = new MiraCMS();
     $cms_core->run();
 } catch (Exception $e) {
