@@ -18,6 +18,8 @@ try {
     $DB = new Database();
     $current_template = $DB->query('config_data','SELECT','','data_key = ?', array('current_template'));
     $current_template = $current_template['data_value'];
+    $current_admin_template = $DB->query('config_data','SELECT','','data_key = ?', array('current_admin_template'));
+    $current_admin_template = $current_admin_template['data_value'];
     $cms_plugins = array();
     $cms_core = new MiraCMS();
     $cms_core->run();
