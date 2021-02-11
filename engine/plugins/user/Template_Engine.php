@@ -3,7 +3,11 @@ $plugin_name = 'Template_Engine';
 $plugin_status = 'Enabled';
 class Template_Engine extends MiraCMS {
     public function view($path, $mode) {
-        global $current_template,$current_admin_template, $DB;
+        global $DB;
+        $current_template = $DB->query('miracms_config_data','SELECT','','data_key = ?', array('current_template'));
+        $current_template = $current_template['data_value'];
+        $current_admin_template = $DB->query('miracms_config_data','SELECT','','data_key = ?', array('current_admin_template'));
+        $current_admin_template = $current_admin_template['data_value'];
         $cms_data['news'] = array(array('title' => 'Test'),array('title' => 'Test'));
         $data_template = array();
         if ($mode == 'Admin') {
