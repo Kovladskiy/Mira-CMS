@@ -17,6 +17,6 @@ $routes = [
     '/' => 'Home.php',
     $admin_url => 'Admin/Home.php',
     ''.$admin_url.'/login' => 'Admin/Login.php',
-    '/ajax/{_w_3_}' => 'Ajax.php'
+    '/ajax/{_w_3_}' => 'Ajax.php',
     '/api/{_w_1_}' => 'Api.php'
 ];
