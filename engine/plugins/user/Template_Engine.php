@@ -8,7 +8,6 @@ class Template_Engine extends MiraCMS {
         $current_template = $current_template['data_value'];
         $current_admin_template = $DB->query('miracms_config_data','SELECT','','data_key = ?', array('current_admin_template'));
         $current_admin_template = $current_admin_template['data_value'];
-        $cms_data['news'] = array(array('title' => 'Test'),array('title' => 'Test'));
         $data_template = array();
         if ($mode == 'Admin') {
           $template = file_get_contents('templates/Admin/'.$current_admin_template.'/'.$path.'.html');
@@ -20,6 +19,7 @@ class Template_Engine extends MiraCMS {
             $explode = explode('{MiraCMS: {foreach_start ', $match);
             $explode = $explode[1];
             $explode = str_replace('}}','',$explode);
+            $cms_data[$explode] = $DB->query($explode,'SELECT','','', array(''));
             $template = str_replace('{MiraCMS: {foreach_start '.$explode.'}}','<?php foreach ($cms_data["'.$explode.'"] as $key => $value) { ?>', $template);
         }
         preg_match_all('|{MiraCMS: {foreach_end (.+)}}|isU', $template, $matches1);
