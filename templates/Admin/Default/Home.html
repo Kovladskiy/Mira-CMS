@@ -1,4 +1,3 @@
-{MiraCMS: {echo_string admin_url}}
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -32,13 +31,13 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="/admin"><i class="menu-icon fa fa-home"></i>Home </a>
+                        <a href="{MiraCMS: {echo_string admin_url}}"><i class="menu-icon fa fa-home"></i>Home </a>
                     </li>
                     <li>
-                        <a href="/admin/settings"> <i class="menu-icon fa fa-cog"></i>Settings </a>
+                        <a href="{MiraCMS: {echo_string admin_url}}/settings"> <i class="menu-icon fa fa-cog"></i>Settings </a>
                     </li>
                     <li>
-                        <a href="/admin/settings"> <i class="menu-icon fa fa-sign-out"></i>Logout </a>
+                        <a href="{MiraCMS: {echo_string admin_url}}/settings"> <i class="menu-icon fa fa-sign-out"></i>Logout </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
