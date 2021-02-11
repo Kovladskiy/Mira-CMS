@@ -3,7 +3,7 @@ $plugin_name = 'Template_Engine';
 $plugin_status = 'Enabled';
 class Template_Engine extends MiraCMS {
     public function view($path, $mode) {
-        global $current_template,$current_admin_template;
+        global $current_template,$current_admin_template, $DB;
         $cms_data['news'] = array(array('title' => 'Test'),array('title' => 'Test'));
         $data_template = array();
         if ($mode == 'Admin') {
@@ -16,7 +16,7 @@ class Template_Engine extends MiraCMS {
             $explode = explode('{MiraCMS: {foreach_start ', $match);
             $explode = $explode[1];
             $explode = str_replace('}}','',$explode);
-            $template = str_replace('{MiraCMS: {foreach_start '.$explode.'}}','<?php foreach ($cms_data["'.$explode.'"] as $value) { ?>', $template);
+            $template = str_replace('{MiraCMS: {foreach_start '.$explode.'}}','<?php foreach ($cms_data["'.$explode.'"] as $key => $value) { ?>', $template);
         }
         preg_match_all('|{MiraCMS: {foreach_end (.+)}}|isU', $template, $matches1);
         foreach ($matches1[0] as $key => $match) {
