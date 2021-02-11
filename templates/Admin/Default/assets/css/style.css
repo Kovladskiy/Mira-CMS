@@ -608,6 +608,10 @@ aside.left-panel {
     .navbar .navbar-nav > li {
       padding-left: 30px;
       padding-right: 30px; }
+      .navbar .navbar-nav > li:hover {
+        transition: 0.2s ease;
+        background-color: #fafafa;
+       }
       .navbar .navbar-nav > li.active {
         background: #fafafa; }
     .navbar .navbar-nav li {
@@ -627,7 +631,8 @@ aside.left-panel {
         position: relative;
         width: 100%; }
         .navbar .navbar-nav li > a:hover, .navbar .navbar-nav li > a:hover .menu-icon {
-          color: #03a9f3; }
+          color: #03a9f3;
+        }
         .navbar .navbar-nav li > a .menu-icon {
           color: #607d8b;
           float: left;
