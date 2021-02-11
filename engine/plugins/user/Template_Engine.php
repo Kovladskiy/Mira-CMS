@@ -11,15 +11,6 @@ class Template_Engine extends MiraCMS {
         }   else {
             $template = file_get_contents('templates/'.$current_template.'/'.$path.'.html');
         }
-        preg_match_all('|{MiraCMS.- (.+)}|isU', $template, $matches2);
-        foreach ($matches2[0] as $key => $match) {
-            $explode = explode(' ',$match);
-            if ($explode[0] == '{MiraCMS.-') {
-                $explode[1] = str_replace('}','',$explode[1]);
-                $explode = explode('.',$explode[1]);
-                $template = str_replace('{MiraCMS.- '.$explode[0].'.'.$explode[1].'}','<?php echo $value["'.$explode[1].'"]; ?>', $template);
-            }
-        }
         preg_match_all('|{MiraCMS: {foreach_start (.+)}}|isU', $template, $matches1);
         foreach ($matches1[0] as $key => $match) {
             $explode = explode('{MiraCMS: {foreach_start ', $match);
@@ -33,6 +24,13 @@ class Template_Engine extends MiraCMS {
             $explode = $explode[1];
             $explode = str_replace('}}','',$explode);
             $template = str_replace('{MiraCMS: {foreach_end '.$explode.'}}','<?php } ?>', $template);
+        }
+        preg_match_all('|{MiraCMS: {echo_value (.+)}}|isU', $template, $matches1);
+        foreach ($matches1[0] as $key => $match) {
+            $explode = explode('{echo_value ', $match);
+            $explode = $explode[1];
+            $explode = str_replace('}}','',$explode);
+            $template = str_replace('{MiraCMS: {echo_value '.$explode.'}}','<?php echo $value["'.$explode.'"]; ?>', $template);
         }
         eval(' ?>'.$template.'<?php ');
 }
