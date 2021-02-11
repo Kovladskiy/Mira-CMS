@@ -36,6 +36,13 @@ class Template_Engine extends MiraCMS {
             $explode = str_replace('}}','',$explode);
             $template = str_replace('{MiraCMS: {echo_value '.$explode.'}}','<?php echo $value["'.$explode.'"]; ?>', $template);
         }
+        preg_match_all('|{MiraCMS: {echo_string (.+)}}|isU', $template, $matches1);
+        foreach ($matches1[0] as $key => $match) {
+            $explode = explode('{echo_string ', $match);
+            $explode = $explode[1];
+            $explode = str_replace('}}','',$explode);
+            $template = str_replace('{MiraCMS: {echo_string '.$explode.'}}','<?php echo $'.$explode.'; ?>', $template);
+        }
         eval(' ?>'.$template.'<?php ');
 }
 }
