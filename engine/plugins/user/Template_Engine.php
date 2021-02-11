@@ -3,7 +3,7 @@ $plugin_name = 'Template_Engine';
 $plugin_status = 'Enabled';
 class Template_Engine extends MiraCMS {
     public function view($path, $mode) {
-        global $DB;
+        global $DB, $cms_data;
         $current_template = $DB->query('miracms_config_data','SELECT','','data_key = ?', array('current_template'));
         $current_template = $current_template['data_value'];
         $current_admin_template = $DB->query('miracms_config_data','SELECT','','data_key = ?', array('current_admin_template'));
@@ -41,7 +41,7 @@ class Template_Engine extends MiraCMS {
             $explode = explode('{echo_string ', $match);
             $explode = $explode[1];
             $explode = str_replace('}}','',$explode);
-            $template = str_replace('{MiraCMS: {echo_string '.$explode.'}}','<?php echo $'.$explode.'; ?>', $template);
+            $template = str_replace('{MiraCMS: {echo_string '.$explode.'}}','<?php echo $cms_data["'.$explode.'"]; ?>', $template);
         }
         eval(' ?>'.$template.'<?php ');
 }

@@ -2,7 +2,7 @@
 $plugin_name = 'Router';
 class Router extends MiraCMS {
     public function __construct() {
-        global $routes,$matching,$cms_plugins, $DB;
+        global $routes,$matching,$cms_plugins, $DB,$cms_data;
         $url = $_SERVER['REQUEST_URI'];
         $request_explode = explode('/',$url);
         $access = 0;

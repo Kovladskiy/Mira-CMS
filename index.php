@@ -15,6 +15,7 @@ try {
     require_once 'engine/Config.php';
     require_once 'engine/Database.php';
     require_once 'engine/Core.php';
+    require_once 'engine/Data.php';
     $cms_plugins = array();
     $DB = new Database();
     $cms_core = new MiraCMS();
