@@ -10,7 +10,7 @@ class Template_Engine extends MiraCMS {
         $current_admin_template = $current_admin_template['data_value'];
         $data_template = array();
         if ($mode == 'Admin') {
-          $template = file_get_contents('templates/Admin/'.$current_admin_template.'/'.$path.'.html');
+            $template = file_get_contents('templates/Admin/'.$current_admin_template.'/'.$path.'.html');
         }   else {
             $template = file_get_contents('templates/'.$current_template.'/'.$path.'.html');
         }
