@@ -12,6 +12,8 @@ try {
         require_once 'engine/views/Install.php';
         exit();
     }*/
+    $token = $_SERVER['HTTP_HOST'];
+    $token = password_hash($token, PASSWORD_BCRYPT, array('cost' => 9)); 
     require_once 'engine/Functions.php';
     require_once 'engine/Config.php';
     require_once 'engine/Database.php';
