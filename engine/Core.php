@@ -2,8 +2,6 @@
 class MiraCMS {
     public function run () {    
         global $cms_plugins, $DB;
-
-        require_once 'engine/functions/Security.php';
         
         $plugins = scandir(__DIR__.'/plugins/user/');
         $plugins_files = array();

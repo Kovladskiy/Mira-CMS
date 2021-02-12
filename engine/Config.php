@@ -3,6 +3,7 @@ $db_server = 'localhost';
 $db_username = 'root';
 $db_password = 'root';
 $db_name = 'cms';
+$db_prefix = '';
 $admin_url = '/admin';
 $token = $_SERVER['HTTP_HOST'];
 $token = password_hash($token, PASSWORD_BCRYPT, array('cost' => 9)); 
