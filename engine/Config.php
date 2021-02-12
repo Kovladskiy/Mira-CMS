@@ -4,6 +4,8 @@ $db_username = 'root';
 $db_password = 'root';
 $db_name = 'cms';
 $admin_url = '/admin';
+$token = $_SERVER['HTTP_HOST'];
+$token = password_hash($token, PASSWORD_BCRYPT, array('cost' => 9)); 
 
 $matching = [
     'n' => "/[^0-9]/",
@@ -17,6 +19,6 @@ $routes = [
     '/' => 'Home.php',
     $admin_url => 'Admin/Home.php',
     ''.$admin_url.'/login' => 'Admin/Login.php',
-    '/ajax/{_w_3_}' => 'Ajax.php',
-    '/api/{_w_1_}' => 'Api.php'
+    '/ajax/'.$token => 'Ajax.php',
+    '/api/'.$token.'/{_w_1_}' => 'Api.php'
 ];
