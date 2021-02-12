@@ -2,6 +2,12 @@
 $plugin_name = 'Template_Engine';
 $plugin_status = 'Enabled';
 class Template_Engine extends MiraCMS {
+    public function activation () {
+        
+    }
+    public function deactivation () {
+
+    }
     public function view($path, $mode) {
         global $DB, $cms_data;
         $current_template = $DB->query('miracms_config_data','SELECT','','data_key = ?', array('current_template'));

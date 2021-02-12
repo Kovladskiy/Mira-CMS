@@ -22,6 +22,7 @@ class MiraCMS {
                     if (class_exists($plugin_name)) {
                         $load_class = new $plugin_name;
                         $cms_plugins[$plugin_name] = $load_class;
+                        $cms_plugins[$plugin_name]->activation();
                     }
                 }
                 }
