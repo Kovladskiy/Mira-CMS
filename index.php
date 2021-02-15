@@ -30,7 +30,7 @@ require_once 'engine/Functions.php';
 require_once 'engine/Config.php';
 require_once 'engine/Database.php';
 require_once 'engine/Core.php';
-require_once 'engine/Dasta.php';
+require_once 'engine/Data.php';
     
 $cms_plugins = array();
 $DB = new Database();
