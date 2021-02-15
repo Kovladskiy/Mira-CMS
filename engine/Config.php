@@ -6,7 +6,8 @@ $db_name = 'cms';
 $db_prefix = '';
 $admin_url = '/admin';
 $token = $_SERVER['HTTP_HOST'];
-$token = password_hash($token, PASSWORD_BCRYPT, array('cost' => 9)); 
+$secret_key = '';
+$token = password_hash($secret_key.$token.$secret_key, PASSWORD_BCRYPT, array('cost' => 9)); 
 
 $matching = [
     'n' => "/[^0-9]/",
