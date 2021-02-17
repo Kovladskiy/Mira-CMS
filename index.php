@@ -6,15 +6,16 @@ define('WORKING_DIRECTORY', getcwd());
 function ShutdownFunction()  {
     chdir(WORKING_DIRECTORY);
     $err = error_get_last();
-    $date = time();
-    $full_date = date("y-m-d h:i:s",$date);
-    $date = date("y-m-d",$date);
-    $file = 'engine/logs/System_'.$date.'.txt';
-    $logcontent = 'Error handler got occurred in '.$err["file"].' at line '.$err["line"].': '.$err["message"].' | Time: '.$full_date.'';
-    file_put_contents($file, $logcontent.PHP_EOL , FILE_APPEND | LOCK_EX);
-    error_log($logcontent, 3, $file);
-    http_response_code(500);
-    exit();
+    if (!empty($err)) {
+        $date = time();
+        $full_date = date("y-m-d h:i:s",$date);
+        $date = date("y-m-d",$date);
+        $file = 'engine/logs/System_Error_'.$date.'.txt';
+        $logcontent = 'Error handler got occurred in '.$err["file"].' at line '.$err["line"].': '.$err["message"].' | Time: '.$full_date.'';
+        file_put_contents($file, $logcontent.PHP_EOL , FILE_APPEND);
+        http_response_code(500);
+        exit();
+    }
 }
 
 register_shutdown_function('ShutdownFunction');

@@ -6,7 +6,7 @@ $db_name = 'cms';
 $db_prefix = '';
 $admin_url = '/admin';
 $token = $_SERVER['HTTP_HOST'];
-$secret_key = '';
+$secret_key = 'asasd';
 $token = password_hash($secret_key.$token.$secret_key, PASSWORD_BCRYPT, array('cost' => 9)); 
 
 $matching = [
