@@ -21,6 +21,6 @@ $routes = [
     '/' => 'Home.php',
     $admin_url => 'Admin/Home.php',
     ''.$admin_url.'/login' => 'Admin/Login.php',
-    '/ajax/'.$token => 'Ajax.php',
+    ''.$admin_url.'/ajax_content'.$token.'' => 'Admin/Ajax_Content.php',
     '/api/'.$token.'/{_w_1_}' => 'Api.php'
 ];

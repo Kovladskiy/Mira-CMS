@@ -14,7 +14,7 @@
             $error_text = 'Invalid characters';
         }
         if (empty($error_text)) {
-              $success_text = 'Mira CMS Was Installed! Please, click on "Continue" button.';
+              $success_text = "Mira CMS Was Installed!<br>Please, reload this page.";
               $config = file_get_contents('engine/Pre_Config.php');
               $config = str_replace('%DB_SERVER%', $data['db_server'], $config);
               $config = str_replace('%DB_USERNAME%', $data['db_username'], $config);
@@ -49,52 +49,99 @@
         }
     }
 ?>
-<!DOCTYPE HTML>
-<html lang="ru">
-<head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Installation Mira CMS</title>
-	<link rel="stylesheet" href="/templates/Install/style.css" />
-</head>
-<body>
-  <div class="container">  
-    <form id="contact" action="" method="post">
-      <h3>Mira CMS Installer</h3><hr><br>
-      <?php
-        if (!empty($error_text)) {
-            echo '<h4 style="color: red;">'.$error_text.'</h4>';
-        } else if (!empty($success_text)) {
-          echo '<h4 style="color: green;">'.$success_text.'</h4>';
-      }
-      ?>
-      <fieldset>
-        <input placeholder="Database Server" name="db_server" type="text" tabindex="1" required autofocus>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Database Username" name="db_username" type="text" tabindex="2" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Database Password" name="db_password" type="password" tabindex="3" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Database Name" name="db_name" type="text" tabindex="4" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Admin URL" name="admin_url" type="text" tabindex="5" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Admin Username" name="admin_username" type="text" tabindex="6" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Admin Password" name="admin_password" type="password" tabindex="7" required>
-      </fieldset><br>
-      <fieldset>
-        <button name="submit" type="submit">Install</button>
-      </fieldset>
-      <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a></p>
-    </form>
-  </div>
-</body>
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Language" content="en" />
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#4188c9">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+    <title>Mira CMS - Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+    <script src="/templates/Admin/Default/assets/js/require.min.js"></script>
+    <script>
+      requirejs.config({
+          baseUrl: '/'
+      });
+    </script>
+    <!-- Dashboard Core -->
+    <link href="/templates/Admin/Default/assets/css/dashboard.css" rel="stylesheet" />
+    <script src="/templates/Admin/Default/assets/js/dashboard.js"></script>
+    <!-- c3.js Charts Plugin -->
+    <link href="/templates/Admin/Default/assets/plugins/charts-c3/plugin.css" rel="stylesheet" />
+    <script src="/templates/Admin/Default/assets/plugins/charts-c3/plugin.js"></script>
+    <!-- Google Maps Plugin -->
+    <link href="/templates/Admin/Default/assets/plugins/maps-google/plugin.css" rel="stylesheet" />
+    <script src="/templates/Admin/Default/assets/plugins/maps-google/plugin.js"></script>
+    <!-- Input Mask Plugin -->
+    <script src="/templates/Admin/Default/assets/plugins/input-mask/plugin.js"></script>
+  </head>
+  <body class="">
+    <div class="page">
+      <div class="page-single">
+        <div class="container">
+          <div class="row">
+            <div class="col col-login mx-auto">
+              <div class="text-center mb-6"> 
+                  Mira CMS
+              </div>
+              <form class="card" action="" method="post">
+                <div class="card-body p-6">
+                  <div class="card-title">Installation</div>      
+                  <?php
+                    if (!empty($error_text)) {
+                        echo '<h4 style="color: red;">'.$error_text.'</h4>';
+                    } else if (!empty($success_text)) {
+                      echo '<h4 style="color: green;">'.$success_text.'</h4>';
+                  }
+                  ?>
+                  <div class="form-group">
+                    <label class="form-label">Database Server</label>
+                    <input name="db_server" type="text" class="form-control" placeholder="Database Server">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Database Username</label>
+                    <input name="db_username" type="text" class="form-control" placeholder="Database Username">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Database Password</label>
+                    <input name="db_password" type="password" class="form-control"  placeholder="Database Password">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Database name</label>
+                    <input name="db_name" type="text" class="form-control" placeholder="Database name">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Admin URL</label>
+                    <input name="admin_url" type="text" class="form-control" placeholder="Admin URL">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Admin Username</label>
+                    <input name="admin_username" type="text" class="form-control"  placeholder="Admin Username">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Admin Password</label>
+                    <input name="admin_password" type="password" class="form-control" placeholder="Admin Password">
+                  </div>
+                  <div class="form-footer">
+                    <button name="submit" type="submit" class="btn btn-primary btn-block">Install</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
