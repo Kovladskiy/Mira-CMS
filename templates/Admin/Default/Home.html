@@ -118,7 +118,7 @@
                   <li class="nav-item">
                     <a href="" class="nav-link">{MiraCMS: {echo_value title}}</a>
                   </li>
-                  {MiraCMS: {foreach_end miracms_admin_pages}}
+                  {MiraCMS: {bracket_end}}
                 </ul>
               </div>
             </div>
@@ -126,6 +126,7 @@
         </div>
         <div class="my-3 my-md-5">
           <div id="main-content" class="container">
+            {MiraCMS: {if_true_start test}}{MiraCMS: {echo_string test}}{MiraCMS: {bracket_end}}
             <!--<div class="row">
               <div class="col-md-6 col-xl-12">
                 <div class="card">
@@ -164,9 +165,9 @@
       </footer>
     </div>
     <script>
-      jQuery(function($) {
+      /*jQuery(function($) {
           $('#main-content').load("/examples/ajax-loaded.html");
-      });
+      });*/
     </script>
   </body>
 </html>

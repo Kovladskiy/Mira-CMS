@@ -28,13 +28,6 @@ class Template_Engine extends MiraCMS {
             $cms_data[$explode] = $DB->query($explode,'SELECT','','', array(''));
             $template = str_replace('{MiraCMS: {foreach_start '.$explode.'}}','<?php foreach ($cms_data["'.$explode.'"] as $key => $value) { ?>', $template);
         }
-        preg_match_all('|{MiraCMS: {foreach_end (.+)}}|isU', $template, $matches1);
-        foreach ($matches1[0] as $key => $match) {
-            $explode = explode('{MiraCMS: {foreach_end ', $match);
-            $explode = $explode[1];
-            $explode = str_replace('}}','',$explode);
-            $template = str_replace('{MiraCMS: {foreach_end '.$explode.'}}','<?php } ?>', $template);
-        }
         preg_match_all('|{MiraCMS: {echo_value (.+)}}|isU', $template, $matches1);
         foreach ($matches1[0] as $key => $match) {
             $explode = explode('{echo_value ', $match);
@@ -49,6 +42,14 @@ class Template_Engine extends MiraCMS {
             $explode = str_replace('}}','',$explode);
             $template = str_replace('{MiraCMS: {echo_string '.$explode.'}}','<?php echo $cms_data["'.$explode.'"]; ?>', $template);
         }
+        preg_match_all('|{MiraCMS: {if_true_start (.+)}}|isU', $template, $matches1);
+        foreach ($matches1[0] as $key => $match) {
+          $explode = explode('{if_true_start ', $match);
+          $explode = $explode[1];
+          $explode = str_replace('}}','',$explode);
+          $template = str_replace('{MiraCMS: {if_true_start '.$explode.'}}','<?php if ($cms_data["'.$explode.'"]) { ?>', $template);
+        }
+        $template = str_replace('{MiraCMS: {bracket_end}}','<?php } ?>', $template);
         eval(' ?>'.$template.'<?php ');
 }
 }
